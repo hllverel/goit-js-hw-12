@@ -39,13 +39,17 @@ loadMore.addEventListener("click", async (event) => {
     currentPage += 1;
     await fetchPosts();
 
-    const card = document.querySelector(".search-result");
-    const scrollHeight = card.getBoundingClientRect().height * 2;
-        
-    window.scrollBy({
-        top: scrollHeight,
-        behavior: "smooth",
-    });
+    setTimeout(() => {
+        const card = document.querySelector(".search-result");
+        if (card) {
+            const scrollHeight = card.getBoundingClientRect().height * 2;
+
+            window.scrollBy({
+                top: scrollHeight,
+                behavior: "smooth",
+            });
+        }
+    }, 100);
 });
 
 const fetchPosts = async () => {
@@ -88,7 +92,9 @@ const fetchPosts = async () => {
         };
         showResults(results.hits);
         loadMore.style.display = "block";
-    } catch (error) {
+    }
+    
+    catch (error) {
         loader.style.display = "none";
         iziToast.error({
             position: 'topRight',
