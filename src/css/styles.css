@@ -58,7 +58,6 @@ input[type='search']:active {
 button {
   border-radius: 8px;
   padding: 8px 16px;
-  width: 91px;
   height: 40px;
   background: #4e75ff;
   font-weight: 500;
@@ -160,4 +159,11 @@ button:hover {
   line-height: 2;
   letter-spacing: 0.04em;
   color: #2e2f42;
+}
+
+/* LOAD MORE BUTTON */
+.loadmore {
+  width: 125px;
+  margin: 20px auto;
+  display: none;
 }
