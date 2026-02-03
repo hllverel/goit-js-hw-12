@@ -18,6 +18,7 @@ let currentSearchItem = '';
 searchButton.addEventListener("click", async (event) => {
     event.preventDefault();
     gallery.innerHTML = '';
+    currentPage = 1;
 
     currentSearchItem = document.querySelector("#image-search").value.trim();
 
@@ -37,8 +38,15 @@ loadMore.addEventListener("click", async (event) => {
     event.preventDefault();
     currentPage += 1;
     await fetchPosts();
-    });
 
+    const card = document.querySelector(".search-result");
+    const scrollHeight = card.getBoundingClientRect().height * 2;
+        
+    window.scrollBy({
+        top: scrollHeight,
+        behavior: "smooth",
+    });
+    });
 
 const fetchPosts = async () => {
     loader.style.display = "block";
