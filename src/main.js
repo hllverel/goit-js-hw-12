@@ -46,7 +46,7 @@ loadMore.addEventListener("click", async (event) => {
         top: scrollHeight,
         behavior: "smooth",
     });
-    });
+});
 
 const fetchPosts = async () => {
     loader.style.display = "block";
@@ -67,7 +67,7 @@ const fetchPosts = async () => {
         loader.style.display = "none";
         iziToast.error({
             position: 'topRight',
-            message: 'Sorry, end of results',
+            message: "We're sorry, but you've reached the end of search results" ,
         });
         loadMore.style.display = "none";
         return;
